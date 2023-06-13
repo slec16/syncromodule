@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Synchronization module</title>
+        <!-- <script src="https://unpkg.com/vue@2"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <div id="app">
+            <header class="header">
+                <h1 v-text="sitename"></h1>
+                <h2 class="time">Dаte:{{ timestamp }}</h2>
+            </header>
+            <main>
+                <div>
+                    <!-- Ввод параметров -->
+                    <div>
+                        <h2>Введите параметры</h2>
+                        <h3>Gate сигнал:</h3>
+                        <input v-model="status.gate">
+                        <h3>Опорный сигнал:</h3>
+                        <input v-model="status.refsignal">
+                    </div>
+                    <br>
+                    <button type="submit"
+                    v-on:click="submitValue">Отправить значения</button>
+    
+                    <hr>
+                    <!-- <state></state> -->
+                    <!-- Вывод значений -->
+                    <div>
+                        <h1>Состояние модуля</h1>
+                        <h2>Gate:{{status.gate}}</h2>
+                        <h2>Частота опорного сигнала:{{status.refsignal}} Гц</h2>
+                        <button type="submit"
+                        v-on:click="checkValue">Обновить значение</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+    <script src="./bundle.js"></script>
+    </body>
+
+</html>

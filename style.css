@@ -1,0 +1,10 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(165, 164, 164);
+}
+
+.time {
+    background-color: antiquewhite;
+}
