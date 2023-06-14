@@ -40725,28 +40725,30 @@ var interface = new Vue({
 
         checkValue() {
             // this.status.gate = 4;
-            // const CA = require('node-epics-ca').default;
-            const CA = require('node-epics-ca');
-            (async () => {
-                try {
-                    console.log(await CA.get('calcExample'));
-                } catch (error) {
-                    console.error(`get failed due to ${error}`)
-                }
-            })()
-            //let pv = new CA.Channel('gate');
+             const CA = require('node-epics-ca').default;
+            //  const CA = require('node-epics-ca');
             // (async () => {
             //     try {
-            //         let pv = new CA.Channel('freq');
-            //         await pv.connect();
-            //         let value = await pv.get();
-            //         this.state.gate = value
-            //         console.log(value);
-            //         await pv.disconnect()
+            //         console.log(await CA.get('calcExample'));
             //     } catch (error) {
-            //        console.log(error);
+            //         console.error(`get failed due to ${error}`)
             //     }
-            // })();
+            // })()
+           // const CA = require('node-epics-ca').default;
+
+            //let pv = new CA.Channel('gate');
+            (async () => {
+                try {
+                    let pv = new CA.Channel('gate');
+                    await pv.connect();
+                    let value = await pv.get();
+                    this.state.gate = value
+                    console.log(value);
+                    await pv.disconnect()
+                } catch (error) {
+                   console.log(error);
+                }
+            })();
             //let pv1 = new CA.Channel('freq');
             // (async () => {
             //     try {
